@@ -1,20 +1,42 @@
-
-# coding: utf-8
-
-# In[73]:
+# imports
+import random
 
 # configs
 keyLen = 3
 outputLen = 36
 
+def createBio(first, grams):
+    finalOutput = ''
 
-# In[56]:
+    for i in xrange(outputLen):
+        # print out example
+        output = []
+        test = random.choice(first)
+    
+        # if key is too short
+        if len(test) < keyLen:
+            continue
+    
+    
+        for i in range(keyLen):
+            output.append(test[i])
+        while 1:
+            if output[-1].find('~') > -1:
+                output[-1] = output[-1].replace('~', '')
+                break
+            n = random.choice(grams[' '.join(test)])   
+        
+            # add new word
+            output.append(n)
+            # shift test to capture next key
+            test.pop(0)
+            test.append(n)
 
-# imports
-import random
 
+        finalOutput += (' '.join(output) + '. ')
 
-# In[57]:
+    return finalOutput
+    
 
 # read in data and clean it
 
@@ -47,8 +69,6 @@ bios = bios.split('\n') # split on new lines
 bios.pop(-1) # remove empty string
 
 
-# In[90]:
-
 # create first words array
 first = [line.split(' ')[:keyLen] for line in bios]
 # create dictionary of n-grams
@@ -63,34 +83,4 @@ for line in bios:
             grams[key] = [l[i+keyLen]]
         
 
-
-# In[101]:
-
-
-for i in xrange(outputLen):
-    # print out example
-    output = []
-    test = random.choice(first)
-    
-    # if key is too short
-    if len(test) < keyLen:
-        continue
-    
-    
-    for i in range(keyLen):
-        output.append(test[i])
-    while 1:
-        if output[-1].find('~') > -1:
-            output[-1] = output[-1].replace('~', '')
-            break
-        n = random.choice(grams[' '.join(test)])   
-        
-        # add new word
-        output.append(n)
-        # shift test to capture next key
-        test.pop(0)
-        test.append(n)
-
-
-    print ' '.join(output) + '.',
 
