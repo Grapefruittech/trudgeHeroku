@@ -1,13 +1,18 @@
 import flask
-import subprocess
-import time          #You don't need this. Just included it so you can see the output stream.
 from TrudgeBiosMarkovBot import *
 
 
 app = flask.Flask(__name__)
 
+
 @app.route('/')
 def index():
+    return '<a href="bios">Bios</a><p><a href="cheers">Cheers</a>'
 
+@app.route('/bios')
+def bios():
     return createBio(first, grams)
 
+@app.route('/cheers')
+def cheers():
+    return "test"
