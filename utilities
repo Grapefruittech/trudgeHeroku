@@ -1,0 +1,5 @@
+# get all songs
+# touch allsongs
+# for a in $(cat albums)
+# do curl http://kanyerest.xyz/api/album/$a >> allsongs
+# done

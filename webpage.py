@@ -1,5 +1,6 @@
 import flask
 from TrudgeBiosMarkovBot import *
+from trudgeCheers import getCheer
 
 
 app = flask.Flask(__name__)
@@ -17,4 +18,4 @@ def bios():
 
 @app.route('/cheers')
 def cheers():
-    return "test"
+    return getCheer()
