@@ -36,9 +36,11 @@ def getCheer():
     lyrics = '\n'.join(nine)
 
     # replace naughty werds :P
-    lyrics, count = replace(lyrics)
-    if count < 2 or lyrics.find('TRUDGE') == -1:
-        return getCheer()
-
+   # lyrics, count = replace(lyrics)
+    #if count < 2 or lyrics.find('TRUDGE') == -1:
+     #   return getCheer()
+# why would you ever want to replace them?
+        
     # replace new lines with breaks becasue HTML
     return lyrics.replace('\n', '<br>')
+    
